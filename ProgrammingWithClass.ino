@@ -111,25 +111,23 @@ void setup() {
 // Main loop. Repeatedly through color sequences
 void loop() {
   // Output color according to selected scheme
-  switch (scheme) {
-    case nothing:
-      led.set(blackColor);
-      break;
-    case wheel:
-      glideThrough(wheelColors,sizeof(wheelColors)/sizeof(rgbColor));
-      break;
-    case rainbow:
-      glideThrough(rainbowColors,sizeof(rainbowColors)/sizeof(rgbColor));
-      break;
-    case all:
-      stepThrough(allColors,sizeof(allColors)/sizeof(rgbColor));
-      break;
-    case white:
-      led.set(whiteColor);
-      break;
-    default:
-      led.set(redColor);
-      break;
+  if (scheme == nothing) {
+    led.set(blackColor);
+  }
+  else if (scheme == wheel) {
+    glideThrough(wheelColors,sizeof(wheelColors)/sizeof(rgbColor));
+  }
+  else if (scheme == rainbow) {
+    glideThrough(rainbowColors,sizeof(rainbowColors)/sizeof(rgbColor));
+  }
+  else if (scheme == all) {
+    stepThrough(allColors,sizeof(allColors)/sizeof(rgbColor));
+  }
+  else if (scheme == white) {
+    led.set(whiteColor);
+  }
+  else { // Program error, this should never happen
+    led.set(redColor);
   }
 
   // Detect if button is going from HIGH to LOW. If so, select next
@@ -140,9 +138,9 @@ void loop() {
       if (scheme >= numberOfSchemes) {
         scheme = nothing;
       }
+      colorStep = 0;
     }
     pushButton = !pushButton;
-    colorStep = 0;
   }
 
   // Wait a bit, then proceed to next color step
