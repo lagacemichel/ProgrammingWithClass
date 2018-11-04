@@ -29,7 +29,7 @@ SOFTWARE.
 
 #include "rgbColor.h"
 
-// Default constructor. Turns all LEDs off.
+// Default constructor. Set to black.
 rgbColor::rgbColor() {
   redComponent = 0;
   greenComponent = 0;
@@ -60,9 +60,38 @@ rgbColor& rgbColor::operator =(const rgbColor& color) {
 // Constructor with initializers. Initalizes the color with
 // the specified red, green, and blue value.
 rgbColor::rgbColor(float r, float g, float b) {
-  redComponent = (byte)(r*255.0);
-  greenComponent = (byte)(g*255.0);
-  blueComponent = (byte)(b*255.0);
+  // Limit red component between 0 and 255
+  if (r <= 0.0) {
+    redComponent = 0;
+  }
+  else if (r >= 1.0) {
+    redComponent = 255;
+  }
+  else {
+    redComponent = (byte)(r*255.0);
+  }
+
+  // Limit green component between 0 and 255
+  if (g <= 0.0) {
+    greenComponent = 0;
+  }
+  else if (g >= 1.0) {
+    greenComponent = 255;
+  }
+  else {
+    greenComponent = (byte)(g*255.0);
+  }
+
+  // Limit blue component between 0 and 255
+  if (b <= 0.0) {
+    blueComponent = 0;
+  }
+  else if (b >= 1.0) {
+    blueComponent = 255;
+  }
+  else {
+    blueComponent = (byte)(b*255.0);
+  }
 }
 
 // Set color value as a gradient between two values.

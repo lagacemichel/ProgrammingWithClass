@@ -49,11 +49,11 @@ static int colorStep = 0;
 
 // Color scheme names
 enum colorScheme {nothing,
-                 wheel,
-                 rainbow,
-                 all,
-                 white,
-                 numberOfSchemes
+                  wheel,
+                  rainbow,
+                  all,
+                  white,
+                  numberOfSchemes
 };
 static colorScheme scheme = nothing;
 

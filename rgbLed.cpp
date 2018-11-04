@@ -30,9 +30,6 @@ SOFTWARE.
 #include "Arduino.h"
 #include "rgbLed.h"
 
-const float REDSCALE = 1.0;      // Attenuation for the color red
-const float GREENSCALE = 1.0;    // Attenuation for the color green
-const float BLUESCALE = 1.0;     // Attenuation for the color blue
 const int ANALOGMAX = 255;       // Maximum analog output value
 
 // Destructor. Does nothing.
@@ -55,7 +52,7 @@ rgbLed::rgbLed(int r, int g, int b) {
 
 void rgbLed::set(rgbColor color) {
   // Output color to RGB LED
-  analogWrite(redPin,color.red()*ANALOGMAX*REDSCALE);
-  analogWrite(greenPin,color.green()*ANALOGMAX*GREENSCALE);
-  analogWrite(bluePin,color.blue()*ANALOGMAX*BLUESCALE);
+  analogWrite(redPin,color.red()*ANALOGMAX);
+  analogWrite(greenPin,color.green()*ANALOGMAX);
+  analogWrite(bluePin,color.blue()*ANALOGMAX);
 }
