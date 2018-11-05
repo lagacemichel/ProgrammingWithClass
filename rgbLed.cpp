@@ -1,8 +1,6 @@
 /*
 rgbLed class (implementation)
 Class rgbLed represents an external rgbLed
-This sketch was written by Michel Lagacé, 2018-10-21
-This code is in the public domain
 
 MIT License
 

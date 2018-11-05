@@ -1,8 +1,6 @@
 /*
 rgbColor class (implementation)
 Class rgbColor stores a color and operates on it
-This sketch was written by Michel Lagacé, 2018-10-21
-This code is in the public domain
 
 MIT License
 
